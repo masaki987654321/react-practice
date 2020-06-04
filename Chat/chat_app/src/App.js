@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 // import AlignItemsList from './components/AlignItemsList';
 import ButtonAppBar from './components/ButtonAppBar.js';
-// import TextInput from './components/TextInput.js';
+import TextInput from './components/TextInput.js';
 
 import {firebaseDb} from 'firebase';
 
@@ -17,8 +17,8 @@ class App extends Component {
       <React.Fragment>
         <ButtonAppBar />
         <div className='App'>
-          {/* <AlignItemsList />
-          <TextInput value="メッセージを入力" /> */}
+          {/* <AlignItemsList /> */}
+          <TextInput value="メッセージを入力" />
         </div>
       </React.Fragment>
     )
