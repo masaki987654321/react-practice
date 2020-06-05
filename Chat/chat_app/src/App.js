@@ -8,6 +8,8 @@ import TextInput from './components/TextInput.js';
 
 import {firebaseDb} from 'firebase';
 
+import './styles/App.css';
+
 //　todo errorあり
 // const messagesRef = firebaseDb.ref('messages');
 

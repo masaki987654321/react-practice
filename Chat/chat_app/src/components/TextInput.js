@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import TextField from '@material-ui/core/TextField';
-// import '../styles/TextInput.css';
+import '../styles/TextInput.css';
 import SendButtons from './SendButton';
 
 import {bindActionCreators} from 'redux';
