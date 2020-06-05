@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
-// import AlignItemsList from './components/AlignItemsList';
+import AlignItemsList from './components/AlignItemsList';
 import ButtonAppBar from './components/ButtonAppBar.js';
 import TextInput from './components/TextInput.js';
 
@@ -17,7 +17,7 @@ class App extends Component {
       <React.Fragment>
         <ButtonAppBar />
         <div className='App'>
-          {/* <AlignItemsList /> */}
+          <AlignItemsList />
           <TextInput value="メッセージを入力" />
         </div>
       </React.Fragment>

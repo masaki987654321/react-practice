@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import TextField from '@material-ui/core/TextField';
 // import '../styles/TextInput.css';
-// import SendButtons from './SendButton';
+import SendButtons from './SendButton';
 
 import {bindActionCreators} from 'redux';
 import {connect} from "redux";
@@ -18,7 +18,7 @@ class TextInput extends Component {
                         className="text"
                         margin="normal"
                     />
-                    {/* <SendButtons /> */}
+                    <SendButtons />
                 
                 </form>
             </React.Fragment>
