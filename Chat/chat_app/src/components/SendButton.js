@@ -16,14 +16,20 @@ const useStyles = makeStyles(theme => ({
     },
     }));
   
-function SendButtons() {
+function SendButtons(props) {
     const classes = useStyles();
 
     return (
-        <Button variant="contained" color="primary" className={classes.button}>
+        <Button 
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={() => props.onClick(props.value, props.image)}>
             <Icon>send</Icon>
         </Button>
     );
 }
+
+
 
 export default SendButtons;

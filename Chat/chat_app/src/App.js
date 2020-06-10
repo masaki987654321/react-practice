@@ -1,30 +1,80 @@
 import React, {Component} from 'react';
 
-import {connect} from 'react-redux';
-
 import AlignItemsList from './components/AlignItemsList';
 import ButtonAppBar from './components/ButtonAppBar.js';
 import TextInput from './components/TextInput.js';
-
-import {firebaseDb} from 'firebase';
+import SendButton from './components/SendButton.js';
 
 import './styles/App.css';
 
-//　todo errorあり
-// const messagesRef = firebaseDb.ref('messages');
+
+import {compose, bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {actions} from './redux/actions/index';
+
+import {firebaseDb} from './firebase/index';
+const messagesRef = firebaseDb.ref('messages');
 
 class App extends Component {
+  componentWillMount() {
+    messagesRef.on('child_added', snapshot => {
+      const m = snapshot.val();
+      let msgs = this.props.message.msgs;
+
+      msgs.push({
+        image: m.image,
+        text: m.text,
+      });
+      this.setState({
+        msqs: msgs,
+      });
+    });
+  }
+
   render() {
+    console.log(this.props);
+    
     return (
       <React.Fragment>
         <ButtonAppBar />
-        <div className='App'>
-          <AlignItemsList />
-          <TextInput value="メッセージを入力" />
-        </div>
+          {this.props.messages.msgs.map((m, i) => 
+            <AlignItemsList key={i} msqs={m} />
+          )}
+
+          <TextInput 
+            onChange={this.props.actions.messages.change}
+            value={this.props.messages.value}
+          />
+
+          <SendButton 
+            onClick={this.props.actions.messages.submit}
+            value={this.props.messages.value}
+            image={this.props.messages.image}
+          />
+      
       </React.Fragment>
     )
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    messages: state.messages,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: {
+      messages: bindActionCreators(actions.messages, dispatch),
+    },
+  };
+};
+
+
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
+)(App);

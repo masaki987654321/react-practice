@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function AlignItemsList() {
+function AlignItemsList(props) {
     const classes = useStyles();
 
     return (
@@ -26,10 +26,10 @@ function AlignItemsList() {
                 <ListItemAvatar>
                     <Avatar
                         alt="Remy Sharp"
-                        src="https://hellogiggles.com/wp-content/uploads/2015/03/11/micro-pig-LondonPignic.jpg"
+                        src={props.msgs.image}
                     />
                 </ListItemAvatar>
-                <ListItemText primary="Hello World" />
+                <ListItemText primary={props.msgs.text} />
             </ListItem>
             <Divider variant="inset" component="li" />
         </List>

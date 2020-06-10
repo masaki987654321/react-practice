@@ -2,11 +2,6 @@ import React, {Component} from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import '../styles/TextInput.css';
-import SendButtons from './SendButton';
-
-import {bindActionCreators} from 'redux';
-import {connect} from "redux";
-
 class TextInput extends Component {
     render () {
         return (
@@ -17,9 +12,9 @@ class TextInput extends Component {
                         label="メッセージを入力"
                         className="text"
                         margin="normal"
+                        value={this.props.value}
+                        onChange={e => this.props.onChange(e.target.value)}
                     />
-                    <SendButtons />
-                
                 </form>
             </React.Fragment>
         )
