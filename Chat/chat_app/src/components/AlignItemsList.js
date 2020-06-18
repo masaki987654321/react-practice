@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 function AlignItemsList(props) {
     const classes = useStyles();
+    // console.log(props);
 
     return (
         <List className={classes.root}>

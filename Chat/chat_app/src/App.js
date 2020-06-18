@@ -19,7 +19,7 @@ class App extends Component {
   componentWillMount() {
     messagesRef.on('child_added', snapshot => {
       const m = snapshot.val();
-      let msgs = this.props.message.msgs;
+      let msgs = this.props.messages.msgs;
 
       msgs.push({
         image: m.image,
@@ -38,7 +38,7 @@ class App extends Component {
       <React.Fragment>
         <ButtonAppBar />
           {this.props.messages.msgs.map((m, i) => 
-            <AlignItemsList key={i} msqs={m} />
+            <AlignItemsList key={i} msgs={m} />
           )}
 
           <TextInput 

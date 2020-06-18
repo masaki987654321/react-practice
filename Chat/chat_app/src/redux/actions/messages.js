@@ -13,10 +13,10 @@ const {messages} = createActions({
                 alert('メッセージを入力してください');
                 return false;
             }
-            // messagesRef.push({
-            //     image: image,
-            //     text:payload,
-            // });
+            messagesRef.push({
+                image: image,
+                text: payload,
+            });
             
             return payload;
         },
