@@ -16,7 +16,7 @@ import {firebaseDb} from './firebase/index';
 const messagesRef = firebaseDb.ref('messages');
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     messagesRef.on('child_added', snapshot => {
       const m = snapshot.val();
       let msgs = this.props.messages.msgs;
